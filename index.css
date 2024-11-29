@@ -1,0 +1,284 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    display: flex; 
+    flex-direction: column;
+}
+
+header {
+    background:black; 
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px ;
+    transition: background 0.3s ease;
+}
+
+
+header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.login-button {
+    background-color: #000000;
+    color: #fff; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; 
+    transition: background 0.5s ease;
+    border: 2px solid #b7980f;
+}
+
+.login-button:hover {
+    background-color: #b7980f;
+    color: black; 
+}
+
+
+section h2:hover {
+    color: #b7980f;
+}
+
+.hero {
+    height: 50vh;
+    color: #fcf9f9;
+    padding: 100px 10px;
+    text-align: center;
+    background: #e9ecef;
+    animation: fadeIn 1.5s ease-in-out;
+    background-image: url(1.jpg);
+    background-size: cover; 
+    background-position: center 20%; 
+    margin-top: 0px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+main {
+    padding: 100px 20px 20px;
+    flex: 1;
+}
+
+h2 {
+    color: #f8f9f9;
+    font-size: 2em;
+    margin: 0;
+}
+
+h3 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 1em; 
+    margin-top: 0; 
+}
+
+.map-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    margin: 20px 0;
+    transition: transform 0.5s ease;
+    display: flex;
+}
+
+.games-list {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+
+.map-container {
+    height: 400px;
+    margin-top: 20px;
+}
+
+footer:hover {
+    background: #b7980f;
+}
+
+.logo {
+    height: 50px; 
+    margin-right: 10px; 
+}
+
+.culture-section {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.culture-image {
+    width: 100%; 
+    max-width: 600px;
+    height: auto;
+    display: block; 
+    margin: 0 auto; 
+}
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    margin-top: 20px; 
+    gap: 20px;
+}
+
+.item-box {
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 1px 15px rgba(60, 60, 60, 0.3); 
+    padding: 20px; 
+    margin: 10px; 
+    flex: 1 1 18%;
+    text-align: center;
+    transition: transform 0.3s; 
+    border: 1px solid #888;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-box:hover {
+    transform: translateY(-5px); 
+}
+
+html, body {
+    height: 100%;
+    margin: 0; 
+}
+
+.hero h2:hover {
+    transform: translateY(-5px); 
+    transition: transform 0.7s;
+    transition: 0.5s; 
+}
+
+.item-title {
+    font-weight: bold;
+    margin: 10px 0 5px; 
+}
+
+.item-price {
+    color: #b7980f; 
+    margin-top: auto;
+}
+
+.item-image {
+    max-width: 100%; 
+    height: auto;
+    margin-bottom: 10px;
+}
+
+footer {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 700px;
+    transition: background 0.3s ease;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: black;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    border-radius: 20px;
+    color: #b7980f;
+}
+
+.popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 3px solid #242010;
+    width: 300px;
+}
+
+.popup h2{
+    color: #b7980f;
+}
+
+.close {
+    color: #b7980f;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
