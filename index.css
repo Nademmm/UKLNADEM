@@ -128,8 +128,6 @@ p {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-
-
 .map-container {
     height: 400px;
     margin-top: 20px;
@@ -220,8 +218,9 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 700px;
+    margin-top: 600px;
     transition: background 0.3s ease;
+    width: auto;
 }
 
 footer ul {
@@ -282,3 +281,30 @@ footer ul li a:hover {
     cursor: pointer;
 }
 
+#translateInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #b7980f; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b7980f;
+}
+
+.translation-output {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #b7980f;
+}
