@@ -18,7 +18,6 @@ header {
     transition: background 0.3s ease;
 }
 
-
 header .container {
     width: 80%;
     margin: auto;
@@ -42,7 +41,7 @@ header h1 {
     flex-grow: 1;
 }
 
-.login-button {
+.cta-button {
     background-color: #000000;
     color: #fff; 
     padding: 10px 20px;
@@ -52,11 +51,10 @@ header h1 {
     border: 2px solid #b7980f;
 }
 
-.login-button:hover {
+.cta-button:hover {
     background-color: #b7980f;
     color: black; 
 }
-
 
 section h2:hover {
     color: #b7980f;
@@ -240,71 +238,4 @@ footer ul li a {
 
 footer ul li a:hover {
     color: black;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 1000; 
-    border-radius: 20px;
-    color: #b7980f;
-}
-
-.popup-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border: 3px solid #242010;
-    width: 300px;
-}
-
-.popup h2{
-    color: #b7980f;
-}
-
-.close {
-    color: #b7980f;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#translateInput {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #b7980f; 
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #b7980f;
-}
-
-.translation-output {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #b7980f;
 }

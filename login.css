@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #b7980f;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    background-color: #b7980f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2575fc;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    }
+
+    .success-message {
+        color: green;
+        margin-top: 10px;
+    }
+    
+    .login-link, .register-link {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+    
+    .login-link a, .register-link a {
+        color: #b7980f;
+        text-decoration: none;
+    }
+    
+    .login-link a:hover, .register-link a:hover {
+        text-decoration: underline;
+    }
+    
+    .container a {
+        display: inline-block;
+        margin-top: 20px;
+        color: #b7980f;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .container a:hover {
+        text-decoration: underline;
+    }

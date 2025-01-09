@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Nusantara - Jawa Barat</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
@@ -23,7 +23,7 @@
     <header>
         <div class="container">
             <img src="2.jpg" alt="Logo My Nusantara" class="logo">
-            <a href="javascript:void(0);" class="login-button" onclick="openPopup()">Login</a>
+            <a href="login.php" class="cta-button" >Login</a>
         </div>
     </header>
 
@@ -96,28 +96,14 @@
         <div class="container">
             <p>&copy; 2024 My Nusantara. Semua hak dilindungi.</p>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="https://wa.me/qr/2753RE3RT7NXK1">Kontak</a></li>
-                <li><a href="#about">About us</a></li>
+                <li><a href="About.php">About us</a></li>
             </ul>
         </div>
     </footer>
-    <script src="index.js"></script>
-
-<div id="loginPopup" class="popup">
-    <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <h2>Login</h2>
-        <form>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
-</div>
-<script>
+    <script src="map.js"></script>
+    <script>
     function translate() {
             const input = document.getElementById('translateInput').value.trim();
             let translation = "";
@@ -130,6 +116,6 @@
             }
             document.getElementById('translationResult').innerText = translation;
         }
-</script>
+    </script>
 </body>
 </html>
