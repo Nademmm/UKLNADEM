@@ -67,12 +67,12 @@ section h2:hover {
     text-align: center;
     background: #e9ecef;
     animation: fadeIn 1.5s ease-in-out;
-    background-image: url(1.jpg);
+    background-image: url(/MY_NUSANTARA/image/1.jpg);
     background-size: cover; 
     background-position: center 20%; 
     margin-top: 0px;
     border-radius: 15px; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
@@ -129,10 +129,6 @@ p {
 .map-container {
     height: 400px;
     margin-top: 20px;
-}
-
-footer:hover {
-    background: #b7980f;
 }
 
 .logo {
@@ -211,16 +207,6 @@ html, body {
     margin-bottom: 10px;
 }
 
-footer {
-    background: black;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 600px;
-    transition: background 0.3s ease;
-    width: auto;
-}
-
 footer ul {
     padding: 0;
     list-style: none;
@@ -237,5 +223,38 @@ footer ul li a {
 }
 
 footer ul li a:hover {
-    color: black;
+    color: #b7980f;
+}
+
+.buy-button {
+    background-color: #b7980f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.5s ease;
+    border: 2px solid #b7980f;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #fff;
+    color: #b7980f;
+    border: 2px solid #b7980f;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.buy-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    transition: background 0.3s ease;
+    width: auto;
 }

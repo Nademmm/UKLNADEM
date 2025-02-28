@@ -1,9 +1,12 @@
 <?php
+    session_start();
     include 'connect.php';
 
-    $query = "SELECT * FROM budaya;";
+    $query = "SELECT * FROM acara;";
     $sql = mysqli_query($conn, $query);
     $no = 0;
+    $loggedInUser  = isset($_SESSION['loggedInUser']) ? $_SESSION['loggedInUser'] : null;
+
 ?>
 
 <!DOCTYPE html>
@@ -12,15 +15,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Nusantara</title>
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/MY_NUSANTARA/css/index.css">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="2.jpg" alt="Logo My Nusantara" class="logo">
-            <a href="login.php" class="cta-button">Login</a>
+<img src="/MY_NUSANTARA/image/2.jpg" alt="Logo My Nusantara" class="logo">
+
+            <?php if ($loggedInUser ): ?>
+                <!-- Tampilkan nama pengguna jika sudah login -->
+                <a href="dasbor.php" class="cta-button"><?php echo htmlspecialchars($loggedInUser ); ?></a>
+            <?php else: ?>
+                <!-- Tampilkan tombol Login jika belum login -->
+                <a href="login.php" id="loginButton" class="cta-button">Login</a>
+            <?php endif; ?>
         </div>
     </header>
 
@@ -37,7 +48,7 @@
         </section>
 
         <section id="budaya" class="culture-section">
-            <img src="3.jpg" alt="Budaya Indonesia" class="culture-image">
+            <img src="/MY_NUSANTARA/image/3.jpg" alt="Budaya Indonesia" class="culture-image">
             <p>Budaya Indonesia adalah sebuah simfoni megah yang mengalun dari ujung barat hingga timur, sebuah harmoni yang dihasilkan dari interaksi antara beragam suku, agama, dan tradisi yang telah terjalin selama ribuan tahun. Bayangkan sebuah lukisan raksasa yang penuh warna, di mana setiap daerah menambahkan warna dan motifnya sendiri, menciptakan sebuah mozaik budaya yang kaya dan menawan. Setiap suku bangsa di Indonesia menyimpan kisah-kisah unik yang membentuk identitas mereka, menjadikan setiap langkah di tanah air ini sebagai perjalanan yang penuh makna.</p>
 
             <p>Di tengah kekayaan budaya ini, seni berdiri sebagai jiwa yang bergetar. Ia bukan hanya sekadar karya yang dilihat, tetapi sebuah ungkapan perasaan yang mendalam. Seni rupa, dengan segala keindahan dan kerumitannya, adalah cermin dari jiwa masyarakat, menceritakan kisah-kisah yang terukir dalam setiap goresan dan warna. Seni pertunjukan, seperti tarian dan teater, menghidupkan cerita-cerita kuno, membawa penonton melintasi waktu dan ruang, merasakan denyut nadi budaya yang telah ada sejak zaman purba.</p>
@@ -50,39 +61,40 @@
 
             <p>Secara kesel uruhan, budaya Indonesia adalah sebuah perjalanan yang dinamis dan menawan, sebuah cerita yang terus berkembang. Ia bukan hanya sekadar identitas, tetapi juga warisan yang harus dijaga dan dihargai. Dengan memahami dan merayakan keragaman budaya ini, kita tidak hanya menghargai perbedaan, tetapi juga memperkuat persatuan dalam masyarakat yang multikultural. Mari kita eksplorasi dan nikmati keindahan budaya Indonesia, karena di dalamnya terdapat kekayaan yang tak ternilai, menunggu untuk ditemukan, dipelajari, dan dirayakan oleh setiap generasi yang akan datang.</p>
         </section>
-        
+    
         <section id="shop" class="logo">
             <h3>Belanja</h3>
-            <p class="item-tradisional">Belanja Item Tradisional</p>
+            <p class="item-tradisional">Item tradisional yang tersedia</p>
             <div class="item-container">
                 <div class="item-box">
-                    <img src="blangkon.jpg" alt="Item 1" class="item-image">
+                    <img src="/MY_NUSANTARA/image/blangkon.jpg" alt="Item 1" class="item-image">
                     <p class="item-title">Blangkon</p>
                     <p class="item-price">Harga: Rp 65.000</p>
                     <a href="https://tokopedia.link/snlDCwCXWOb" class="buy-button">Beli</a>
                 </div>
                 <div class="item-box">
-                    <img src="batik.jpg" alt="Item 2" class="item-image2">
+                    <img src="/MY_NUSANTARA/image/batik.jpg" alt="Item 2" class="item-image2">
                     <p class="item-title">Baju Batik</p>
                     <p class="item-price">Harga: Rp 195.000</p>
                     <a href="https://tokopedia.link/IRbOYPKXWOb" class="buy-button">Beli</a>
                 </div>
                 <div class="item-box">
-                    <img src="lurik.jpg" alt="Item 3" class="item-image">
+                    <img src="/MY_NUSANTARA/image/lurik.jpg" alt="Item 3" class="item-image">
                     <p class="item-title">Baju Lurik</p>
                     <p class="item-price">Harga: Rp 79.000</p>
                     <a href="https://tokopedia.link/px2ejSPXWOb" class="buy-button">Beli</a>
                 </div>
                 <div class="item-box">
-                    <img src="topeng.png" alt="Item 4" class="item-image">
+                    <img src="/MY_NUSANTARA/image/topeng.png" alt="Item 4" class="item-image">
                     <p class="item-title">Topeng Bali</p>
                     <p class="item-price">Harga: Rp 700.000</p>
                     <a href="https://tokopedia.link/QrLwhY4XWOb" class="buy-button">Beli</a>
                 </div>
             </div>
         </section>
+        
     </main>
-    <footer>
+    <footer style=margin-top:600px;>
         <div class="container">
             <p>&copy; 2024 My Nusantara. Semua hak dilindungi.</p>
             <ul>

@@ -4,25 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Nusantara - Jawa Barat</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/MY_NUSANTARA/css/index.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <style>
-    footer {
-        background: black;
-        color: #fff;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 100px;
-        transition: background 0.3s ease;
-        width: auto;
-    }
-    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="2.jpg" alt="Logo My Nusantara" class="logo">
+            <img src="/MY_NUSANTARA/image/2.jpg" alt="Logo My Nusantara" class="logo">
             <a href="login.php" class="cta-button" >Login</a>
         </div>
     </header>
@@ -103,19 +92,5 @@
         </div>
     </footer>
     <script src="map.js"></script>
-    <script>
-    function translate() {
-            const input = document.getElementById('translateInput').value.trim();
-            let translation = "";
-            if (input === "Wilujeng Sumping") {
-                translation = "Selamat Datang";
-            } else if (input === "Hatur Nuhun") {
-                translation = "Terima Kasih";
-            } else {
-                translation = "Tidak ada terjemahan.";
-            }
-            document.getElementById('translationResult').innerText = translation;
-        }
-    </script>
 </body>
 </html>
