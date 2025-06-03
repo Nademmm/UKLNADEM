@@ -1,35 +1,412 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
 }
 
-.profile-container {
-    max-width: 800px;
+.pesanan-container {
+    max-width: 11000px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.pesanan-container h1 {
+    color: #b7980f;
+    font-family: 'El Messiri', serif;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pesanan-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 15px;
+    font-size: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pesanan-table thead tr {
+    background-color: #b7980f;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.pesanan-table th,
+.pesanan-table td {
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.pesanan-table tbody tr {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.pesanan-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.pesanan-table tbody tr:hover {
+    background-color: #f1e8b8;
+}
+
+.buy-button {
+    background-color: #b7980f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 2px solid #b7980f;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+}
+
+.buy-button:hover {
+    background-color: #fff;
+    color: #b7980f;
+    border: 2px solid #b7980f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buy-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.pesanan-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.pesanan-container h1 {
+    color: #b7980f;
+    font-family: 'El Messiri', serif;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
+
+.pesanan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.pesanan-table th,
+.pesanan-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.pesanan-table thead tr {
+    background-color: #b7980f;
+    color: white;
+    font-weight: 700;
+}
+
+.pesanan-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.pesanan-table tbody tr:hover {
+    background-color: #f1e8b8;
+}
+
+.buy-button {
+    background-color: #b7980f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 2px solid #b7980f;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.buy-button:hover {
+    background-color: #fff;
+    color: #b7980f;
+    border: 2px solid #b7980f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buy-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1000px;
     margin: auto;
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1.admin-title {
     text-align: center;
-    opacity: 0; 
-    transition: opacity 1s ease;
+    margin-bottom: 30px;
+    color: #333;
 }
 
-.profile-container.fade-in {
-    opacity: 1;
-}
-
-.profile-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto;
-    padding: 10px;
+h2, h3 {
+    margin-top: 40px;
+    color: #333;
+    border-bottom: 2px solid #b7980f;
+    padding-bottom: 10px;
+    font-family: el messiri;
 }
 
 h1 {
-    margin: 10px 0;
+    margin-top: 40px;
+    color: #333;
+    padding-bottom: 10px;
+    font-family: el messiri;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table thead tr {
+    background-color: #b7980f;
+    color: #fff;
+    text-align: left;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.admin-table img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.admin-button {
+    background-color: #b7980f;
+    color: #fff;
+    padding: 14px 40px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 30px auto 0;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.admin-button:hover {
+    background-color: #9a7a0a;
+}
+
+.admin-link {
+    color: #b7980f;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.admin-link:hover {
+    color: #7a6207;
+    text-decoration: underline;
+}
+
+.delete-link {
+    color: #d9534f;
+    font-weight: 600;
+}
+
+.delete-link:hover {
+    color: #a94442;
+    text-decoration: underline;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+    font-family: elmessiri;
+}
+
+  .buy-button {
+    background-color: #b7980f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    border: 2px solid #b7980f;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.buy-button:hover {
+    background-color: #fff;
+    color: #b7980f;
+    border: 2px solid #b7980f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buy-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.checkout-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    font-family: 'Inter', Arial, sans-serif;
+}
+.checkout-container h1,
+.checkout-container h2 {
+    font-family: 'El Messiri', serif;
+    color: #b7980f;
+}
+.checkout-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.form-group {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea,
+.form-group select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    resize: vertical;
+}
+.form-group textarea {
+    min-height: 80px;
+}
+.cart-summary {
+    flex: 1 1 100%;
+    margin-top: 20px;
+}
+.cart-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.cart-summary th,
+.cart-summary td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+.cart-summary th {
+    background-color: #f8f7f7;
+    color: #b7980f;
+    font-weight: 700;
+}
+.total-row td {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #b7980f;
+}
+.payment-methods {
+    margin-top: 20px;
+    flex: 1 1 100%;
+}
+.payment-methods label {
+    margin-right: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.place-order-btn {
+    margin-top: 30px;
+    background-color: #b7980f;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.place-order-btn:hover {
+    background-color: #a07f0d;
+}
+.order-confirmation {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+.order-confirmation h2 {
+    color: #b7980f;
+    margin-bottom: 20px;
+}
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #b7980f;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+.back-to-home:hover {
+    background-color: #a07f0d;
 }

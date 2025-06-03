@@ -1,0 +1,145 @@
+body {
+    font-family: 'El Messiri', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    border-bottom: 7px solid #b7980f;
+}
+
+header .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    color: #cacaca;
+}
+
+.header-icons a {
+    margin-left: 15px;
+}
+
+.icon {
+    height: 45px;
+    transition: transform 0.5s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.hero {
+    height: 25vh;
+    color: #fff;
+    padding: 150px 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0.242)), url(/MY_NUSANTARA/image/gedungmy.jpg);
+    background-size: cover; 
+    background-position: left 37%; 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 0.5s ease-in-out;
+    position: center;
+    border-bottom: 7px solid #000000;
+}
+
+.hero-content {
+    margin: 40px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3.5rem;
+    color: #e0dfdf;
+    font-family: el messiri;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+
+.about-content {
+    background-color: #fff;
+    padding: 20px 80px;
+    color: #333;
+    font-family: judson;
+    max-width: 960px;
+    margin: 60px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: fadeUp 0.8s ease-in-out;
+}
+
+.about-wrapper {
+    display: block;
+}
+
+.about-content h3 {
+    font-family: 'Judson', serif;
+    font-size: 2rem;
+    color: #b7980f;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b7980f;
+    padding-bottom: 5px;
+}
+
+.about-content p,
+.about-content ul {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+.about-content ul {
+    padding-left: 20px;
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #000;
+    color: #cbcbcb;
+    text-align: center;
+    padding: 15px 0;
+    font-family: el messiri;
+    font-size: 1rem;
+    border-top: 7px solid #b7980f;
+    margin-top: auto;
+}
+
+ h3{
+    font-family: el messiri;
+ }
+
+ .header-icons a {
+    margin-left: 15px;
+}
+
+.icon {
+    height: 45px;
+    transition: transform 0.5s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}

@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: rgb(238, 238, 238);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fbfbfb;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,40 +14,44 @@ body {
 }
 
 .container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 90%; 
-    width: 400px;
+    background-color: #ffffff;
+    padding: 70px 50px;
+    border-radius: 25px;
+    border: 5px solid #b7980f;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    max-width: 95%;
+    width: 450px;
     text-align: center;
 }
 
-
 h2 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 30px;
+    color: #222;
+    font-size: 30px;
+    font-family: El Messiri;
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-align: left;
 }
 
 label {
-    margin-bottom: 5px;
-    color: #555;
-    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 input[type="text"],
 input[type="password"] {
-    padding: 12px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 16px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
     width: 100%;
-    transition: border-color 0.3s;
-    font-size: 16px;
+    font-size: 18px;
+    transition: border 0.3s ease;
 }
 
 input:focus {
@@ -56,70 +60,72 @@ input:focus {
 }
 
 button {
-    padding: 12px; 
+    padding: 16px;
     background-color: #b7980f;
-    font-weight: bold; 
+    font-weight: bold;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
     width: 100%;
-    font-size: 16px; 
+    font-size: 18px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #303030;
+    background-color: #b7980f;
+}
+
+.error-message,
+.success-message {
+    margin-top: 15px;
+    font-size: 16px;
 }
 
 .error-message {
     color: red;
-    margin-top: 10px;
-    font-size: 14px;
 }
 
 .success-message {
     color: green;
-    margin-top: 10px;
-    font-size: 14px; 
 }
 
-    .login-link {
-        margin-top: 15px;
-        font-size: 14px;
-    }
+.login-link,
+.register-link {
+    margin-top: 20px;
+    font-size: 16px;
+}
 
-    .register-link {
-        margin-top: 15px;
-        font-size: 14px;
-    }
-    
-    .login-link a {
-        color: #b7980f;
-        text-decoration: none;
-    }
+.login-link a,
+.register-link a,
+.container a {
+    color: #b7980f;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    .register-link a {
-        color: #b7980f;
-        text-decoration: none;
-    }
-    
-    .login-link a:hover {
-        text-decoration: underline;
-    }
-    
-    .register-link a:hover {
-        text-decoration: underline;
-    }
-    
-    .container a {
-        display: inline-block;
-        margin-top: 20px;
-        color: #b7980f;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    
-    .container a:hover {
-        text-decoration: underline;
-    }
+.login-link a:hover,
+.register-link a:hover,
+.container a:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    padding: 16px;
+    border: 3px solid #b7980f;
+    border-radius: 10px;
+    color: #b7980f;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #b7980f;
+    color: white;
+}

@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "root"; // Ganti jika berbeda
-$pass = ""; // Ganti jika memiliki password
+$user = "root"; 
+$pass = ""; 
 $db = "projectukl";
 
 // Koneksi ke database
@@ -12,7 +12,6 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Tambahkan error handling untuk koneksi
 if (!$conn) {
     echo "Koneksi database gagal!";
     exit();
