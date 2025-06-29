@@ -36,6 +36,7 @@ $result = $stmt->get_result();
     </script>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="pesanan-container">
         <h1>Pesanan Saya</h1>
         <?php if ($result && $result->num_rows > 0): ?>
@@ -47,7 +48,7 @@ $result = $stmt->get_result();
                         <th>Total</th>
                         <th>Status</th>
                         <th>Tanggal Pesan</th>
-                        <th>Aksi</th>
+                        <th>Lainnya</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,7 +84,7 @@ $result = $stmt->get_result();
                                 echo htmlspecialchars($order['status']); 
                                 if ($order['status'] === 'pending' && $order['payment_method'] === 'ewallet'): 
                             ?>
-                                <br><span style="color: red; font-weight: bold;">Pesanan Anda belum dibayar.</span>
+                                <br><span style="color: red; font-weight: bold;">Pesanan Anda belum dibayar</span>
                             <?php endif; ?>
                         </td>
                         <td><?php echo htmlspecialchars($order['created_at']); ?></td>
@@ -118,5 +119,6 @@ $result = $stmt->get_result();
         <?php endif; ?><br><br>
         <a href="index1.php" class="buy-button">Kembali ke Beranda</a>
     </div> 
+    <?php include 'footer.php'; ?>
 </body>
 </html>

@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 <body>
+    <?php include 'header.php'; ?><br>
     <div class="checkout-container">
         <h1>Checkout</h1>
 
@@ -193,10 +194,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </label>
                 </div>
 
-                <button type="submit" class="place-order-btn">Pesan Sekarang</button>
-            </form>
+                <button type="submit" class="buy-button">Pesan Sekarang</button>
+            </form><br>
         <?php endif; ?>
-        <a href="keranjang.php" class="back-to-home">Kembali ke keranjang</a>
+        <a href="keranjang.php" class="buy-button">Kembali ke keranjang</a>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

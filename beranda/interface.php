@@ -30,20 +30,7 @@
 
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">MY NUSANTARA</h1>
-            <nav class="header-icons">
-                <a href="index1.php"><img src="https://indonesiakaya.com/wp-content/themes/indonesiakaya-X2/images/svg/icon__home.svg" alt="Cart" class="icon"></a>
-                <?php if ($loggedInUser): ?>
-                    <a href="dasbor.php"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon" /></a>
-                <?php else: ?>
-                    <a href="login.php" id="loginButton"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon" /></a>
-                <?php endif; ?>
-                <a href="keranjang.php"><img src="/MY_NUSANTARA/image/icon.png" alt="Cart" class="icon" /></a>
-            </nav>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
 
     <section class="hero">
         <div class="hero-content">
@@ -108,10 +95,23 @@
         if ($eventResult && $eventResult->num_rows > 0) {
             while ($row = $eventResult->fetch_assoc()) {
                 echo '<div class="event-card">';
-                echo '<h3>' . htmlspecialchars($row["nama_acara"]) . '</h3>';
+                if (!empty($row["gambar_acara"])) {
+                    echo '<img src="/MY_NUSANTARA/admin/uploads/' . htmlspecialchars($row["gambar_acara"]) . '" alt="' . htmlspecialchars($row["nama_acara"]) . '" class="event-image">';
+                }
+                echo '<h3 class="judulacara">' . htmlspecialchars($row["nama_acara"]) . '</h3>';
                 echo '<div class="event-details">';
-                echo '<p>' . htmlspecialchars($row["tempat_acara"]) . '</p>';
-                echo '<p>' . htmlspecialchars($row["tanggal_acara"]) . '</p>';
+                echo '<div style="display: flex; align-items: center; margin-bottom: 6px;">
+                    <img src="https://indonesiakaya.com/wp-content/themes/indonesiakaya-X2/images/svg/purple/Lokasi.svg" alt="Tempat" style="width:22px; height:20px; margin-right:8px;">
+                    <span>' . htmlspecialchars($row["tempat_acara"]) . '</span>
+                    </div>';
+                echo '<div style="display: flex; align-items: center; margin-bottom: 6px;">
+                    <img src="https://indonesiakaya.com/wp-content/themes/indonesiakaya-X2/images/svg/purple/Harga.svg" alt="Harga" style="width:22px; height:20px; margin-right:8px;">
+                    <span>Rp ' . number_format($row["harga"], 0, ",", ".") . '</span>
+                    </div>';
+                echo '<div style="display: flex; align-items: center;">
+                    <img src="https://indonesiakaya.com/wp-content/themes/indonesiakaya-X2/images/svg/purple/Tanggal.svg" alt="Tanggal" style="width:22px; height:20px; margin-right:8px;">
+                    <span>' . htmlspecialchars($row["tanggal_acara"]) . '</span>
+                    </div>';
                 echo '<a href="detail_acara.php?id_acara=' . urlencode($row["id_acara"]) . '" class="buy-button">Lihat Detail</a> ';
                 echo '<button class="buy-button" onclick="addToCart(\'acara\', ' . $row["id_acara"] . ')">Beli</button>';
                 echo '</div>';
@@ -123,7 +123,7 @@
         ?>
     </div>
 </section>
-    </main>
+</main>
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">

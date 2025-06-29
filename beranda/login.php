@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $query);
         $user = mysqli_fetch_assoc($result);
 
-        if ($user) {
+if ($user) {
             if (password_verify($password, $user['password'])) {
-                $_SESSION['user'] = ['id' => $user['id'], 'username' => $user['username']];
+                $_SESSION['user'] = ['id' => $user['id'], 'username' => $user['username'], 'pp_user' => $user['pp_user']];
                 if ($user['username'] === 'admin') {
                     header("Location: /MY_NUSANTARA/admin/admin.php");
                 } else {

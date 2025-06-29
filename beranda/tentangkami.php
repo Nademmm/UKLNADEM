@@ -18,20 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">MY NUSANTARA</h1>
-            <nav class="header-icons">
-                <a href="index1.php"><img src="/MY_NUSANTARA/image/home.png" alt="Cart" class="icon"></a>
-                <?php if ($loggedInUser): ?>
-                    <a href="dasbor.php"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon"></a>
-                <?php else: ?>
-                    <a href="login.php" id="loginButton"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon"></a>
-                <?php endif; ?>
-                <a href="keranjang.php"><img src="/MY_NUSANTARA/image/icon.png" alt="Cart" class="icon"></a>
-            </nav>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
 
     <section class="hero">
         <div class="hero-content">

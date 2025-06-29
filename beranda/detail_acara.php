@@ -33,22 +33,12 @@ $acara = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="logo">MY NUSANTARA</h1>
-            <nav class="header-icons">
-                <?php if ($loggedInUser): ?>
-                    <a href="dasbor.php"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon" /></a>
-                <?php else: ?>
-                    <a href="login.php" id="loginButton"><img src="/MY_NUSANTARA/image/image.png" alt="User" class="icon" /></a>
-                <?php endif; ?>
-                <a href="keranjang.php"><img src="/MY_NUSANTARA/image/icon.png" alt="Cart" class="icon" /></a>
-            </nav>
-        </div>
-    </header>
-
+    <?php include 'header.php'; ?>
     <main>
-        <section class="event-detail-view" style="border: 1px solid #ccc; padding: 15px; margin: 20px;">
+        <section class="event-detail-view" >
+            <?php if (!empty($acara['gambar_acara'])): ?>
+                <img src="/MY_NUSANTARA/admin/uploads/<?php echo htmlspecialchars($acara['gambar_acara']); ?>" alt="<?php echo htmlspecialchars($acara['nama_acara']); ?>" style="width:100%; max-width:600px; height:auto; margin-bottom: 20px; border-radius: 12px;">
+            <?php endif; ?>
             <h2 class="h2a"><?php echo htmlspecialchars($acara['nama_acara']); ?></h2> 
             <p><?php echo nl2br(htmlspecialchars($acara['deskripsi'])); ?></p>
             <p><strong>Tempat:</strong> <?php echo htmlspecialchars($acara['tempat_acara']); ?></p>
@@ -75,40 +65,6 @@ $acara = mysqli_fetch_assoc($result);
             </script>
         </section>
     </main>
-    
-    <footer>
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h2>MY NUSANTARA</h2>
-            <p>&copy; 2025 My Nusantara. Semua hak dilindungi.</p>
-        </div>
-
-        <div class="footer-links">
-        <h4>Informasi</h4>
-            <ul>
-                <li><a href="index1.php">Beranda</a></li>
-                <li><a href="tentangkami.php">Tentang kami</a></li>
-                <li><a href="dasbor.php">Tentang akun</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-links">
-        <h4>Layanan</h4>
-            <ul>
-                <li><a href="#acara">Tiket acara</a></li>
-                <li><a href="#belanja">Belanja</a></li>
-                <li><a href="#map">Jelajah map</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-links">
-        <h4>Shop</h4>
-            <ul>
-                <li><a href="keranjang.php">Keranjang</a></li>
-                <li><a href="Pesanan.php">Pesanan</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<?php include 'footer.php'; ?>
 </body>
 </html>

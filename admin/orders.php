@@ -2,7 +2,7 @@
 session_start();
 include 'config.php';
 
-$query = "SELECT o.id, u.username, o.name, o.email, o.phone, o.address, o.payment_method, o.total_amount, o.status, o.created_at 
+$query = "SELECT o.id, u.username, o.name, o.email, o.phone, o.address, o.payment_method, o.total_amount, o.status, o.created_at, o.payment_proof 
           FROM orders o 
           LEFT JOIN users u ON o.user_id = u.id
           ORDER BY o.created_at DESC";
@@ -19,34 +19,53 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="/MY_NUSANTARA/css/adminfix.css" />
 </head>
 <body>
+    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
+    <ul>
+        <a href="admin.php"class="admin-link">Admin user</a>
+        <a href="wilayah.php" class="admin-link">Wilayah</a>
+        <a href="acara.php" class="admin-link">Acara</a>
+        <a href="budaya.php" class="admin-link">Budaya</a>
+        <a href="barang.php" class="admin-link">Barang</a>
+        <a href="explor.php" class="admin-link">Interface</a>
+        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
+    </ul>
+    <br>
     <h1 class="admin-subtitle">Daftar Pesanan</h1>
     <table class="admin-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Telepon</th>
-                <th>Alamat</th>
-                <th>Metode Pembayaran</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th>Tanggal Pesan</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">ID</th>
+                        <th>Username</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Telepon</th>
+                        <th>Alamat</th>
+                        <th>Metode Pembayaran</th>
+                        <th style="width: 110px;">Bukti Pembayaran</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Tanggal Pesan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
         <tbody>
             <?php if ($result && mysqli_num_rows($result) > 0): ?>
                 <?php while ($order = mysqli_fetch_assoc($result)): ?>
                     <tr>
-                        <td><?php echo $order['id']; ?></td>
+                        <td style="width: 50px;"><?php echo $order['id']; ?></td>
                         <td><?php echo htmlspecialchars($order['username'] ?? '-'); ?></td>
                         <td><?php echo htmlspecialchars($order['name']); ?></td>
                         <td><?php echo htmlspecialchars($order['email']); ?></td>
                         <td><?php echo htmlspecialchars($order['phone']); ?></td>
                         <td><?php echo htmlspecialchars($order['address']); ?></td>
                         <td><?php echo htmlspecialchars($order['payment_method']); ?></td>
+                        <td style="width: 250px;">
+                            <?php if (!empty($order['payment_proof'])): ?>
+                                <img src="uploads/payment_proofs/<?php echo htmlspecialchars($order['payment_proof']); ?>" alt="Bukti Pembayaran" style="max-width: 100px; max-height: 80px; border: 1px solid #ccc; padding: 2px;">
+                            <?php else: ?>
+                                -
+                            <?php endif; ?>
+                        </td>
                         <td>Rp <?php echo number_format($order['total_amount'], 0, ",", "."); ?></td>
                         <td><?php echo htmlspecialchars($order['status']); ?></td>
                         <td><?php echo htmlspecialchars($order['created_at']); ?></td>
@@ -62,17 +81,7 @@ $result = mysqli_query($conn, $query);
             <?php endif; ?>
         </tbody>
     </table>
-    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
-    <ul>
-        <a href="admin.php"class="admin-link">Admin user</a>
-        <a href="wilayah.php" class="admin-link">Wilayah</a>
-        <a href="acara.php" class="admin-link">Acara</a>
-        <a href="budaya.php" class="admin-link">Budaya</a>
-        <a href="barang.php" class="admin-link">Barang</a>
-        <a href="explor.php" class="admin-link">Interface</a>
-        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
-    </ul>
-    <br>
+    
 </body>
 <footer>    
     <div class="container">

@@ -48,6 +48,17 @@ $wilayahResult = $conn->query("SELECT id_wilayah, nama_wilayah FROM wilayah ORDE
     <link rel="stylesheet" href="/MY_NUSANTARA/css/adminfix.css" />
 </head>
 <body>
+    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
+    <ul>
+        <a href="admin.php"class="admin-link">Admin user</a>
+        <a href="wilayah.php" class="admin-link">Wilayah</a>
+        <a href="budaya.php" class="admin-link">Budaya</a>
+        <a href="acara.php" class="admin-link">Acara</a>
+        <a href="barang.php" class="admin-link">Barang</a>
+        <a href="orders.php" class="admin-link">Pesanan</a>
+        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
+    </ul>
+    <br>
     <div class="container" >
         <h1 class="admin-subtitle">Kelola Konten Interface</h1>
         <?php if ($message): ?>
@@ -136,17 +147,7 @@ $wilayahResult = $conn->query("SELECT id_wilayah, nama_wilayah FROM wilayah ORDE
             </tbody>
         </table>
     </div>
-    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
-    <ul>
-        <a href="admin.php"class="admin-link">Admin user</a>
-        <a href="wilayah.php" class="admin-link">Wilayah</a>
-        <a href="budaya.php" class="admin-link">Budaya</a>
-        <a href="acara.php" class="admin-link">Acara</a>
-        <a href="barang.php" class="admin-link">Barang</a>
-        <a href="orders.php" class="admin-link">Pesanan</a>
-        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
-    </ul>
-    <br>
+    
     <script>//js gae mempersingkat
     function toggleDescription(link) {
         var td = link.parentElement;

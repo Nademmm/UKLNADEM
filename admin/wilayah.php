@@ -34,6 +34,17 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/MY_NUSANTARA/css/adminfix.css">
 </head>
 <body>
+    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
+    <ul>
+        <a href="admin.php"class="admin-link">Admin user</a>
+        <a href="budaya.php" class="admin-link">Budaya</a>
+        <a href="acara.php" class="admin-link">Acara</a>
+        <a href="barang.php" class="admin-link">Barang</a>
+        <a href="orders.php" class="admin-link">Pesanan</a>
+        <a href="explor.php" class="admin-link">Interface</a>
+        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
+    </ul>
+    <br>
     <div class="container">
         <h3 class="admin-subtitle">Tambah Data</h3>
         <form method="post">
@@ -69,17 +80,7 @@ if (isset($_GET['id'])) {
     ?>
 </table>
 <br>
-    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
-    <ul>
-        <a href="admin.php"class="admin-link">Admin user</a>
-        <a href="budaya.php" class="admin-link">Budaya</a>
-        <a href="acara.php" class="admin-link">Acara</a>
-        <a href="barang.php" class="admin-link">Barang</a>
-        <a href="orders.php" class="admin-link">Pesanan</a>
-        <a href="explor.php" class="admin-link">Interface</a>
-        <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
-    </ul>
-    <br>
+    
 </body>
 <footer>
         <div class="container">

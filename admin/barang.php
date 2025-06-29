@@ -53,7 +53,18 @@ if (isset($_GET['id'])) {
     <title>admin-barang</title>
     <link rel="stylesheet" href="/MY_NUSANTARA/css/adminfix.css">
 </head>
-<body>    
+<body>
+    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
+        <ul>
+            <a href="admin.php"class="admin-link">Admin user</a>
+            <a href="wilayah.php" class="admin-link">Wilayah</a>
+            <a href="budaya.php" class="admin-link">Budaya</a>
+            <a href="acara.php" class="admin-link">Acara</a>
+            <a href="orders.php" class="admin-link">Pesanan</a>
+            <a href="explor.php" class="admin-link">Interface</a>
+            <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
+        </ul>
+        <br>    
     <div class="container">    
     <form method="post" enctype="multipart/form-data" class="admin-form">
         <h3 class="admin-subtitle">Tambah Data</h3>
@@ -95,17 +106,7 @@ if (isset($_GET['id'])) {
     }
         ?>
     </table>
-    <h3 class="admin-subtitle">Halaman Admin yang lain :</h3>
-        <ul>
-            <a href="admin.php"class="admin-link">Admin user</a>
-            <a href="wilayah.php" class="admin-link">Wilayah</a>
-            <a href="budaya.php" class="admin-link">Budaya</a>
-            <a href="acara.php" class="admin-link">Acara</a>
-            <a href="orders.php" class="admin-link">Pesanan</a>
-            <a href="explor.php" class="admin-link">Interface</a>
-            <a href="/MY_NUSANTARA/beranda/index1.php" class="admin-link">Beranda</a>
-        </ul>
-        <br>
+    
 </body>
 <footer>    
     <div class="container">

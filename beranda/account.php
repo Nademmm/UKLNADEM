@@ -1,11 +1,10 @@
 <?php
+include 'connect.php';
 session_start();
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
-
-include 'connect.php';
 
 // njupuk data pengguna
 $user_id = $_SESSION['user']['id'];
@@ -25,10 +24,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $new_username = $_POST['username'];
         $new_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $update_query = "UPDATE users SET username='$new_username', password='$new_password' WHERE id={$user['id']}";
+        // Handle profile picture upload
+        $profile_picture = $user['pp_user']; // default to existing
+        if (isset($_FILES['pp_user']) && $_FILES['pp_user']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['pp_user']['tmp_name'];
+            $fileName = $_FILES['pp_user']['name'];
+            $fileSize = $_FILES['pp_user']['size'];
+            $fileType = $_FILES['pp_user']['type'];
+            $fileNameCmps = explode(".", $fileName);
+            $fileExtension = strtolower(end($fileNameCmps));
+
+            $allowedfileExtensions = array('jpg', 'jpeg', 'png', 'gif');
+            if (in_array($fileExtension, $allowedfileExtensions)) {
+                $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+                $uploadFileDir = __DIR__ . '/../admin/uploads/';
+                $dest_path = $uploadFileDir . $newFileName;
+
+                if(move_uploaded_file($fileTmpPath, $dest_path)) {
+                    $profile_picture = $newFileName;
+                }
+            }
+        }
+
+        $update_query = "UPDATE users SET username='$new_username', password='$new_password', pp_user='$profile_picture' WHERE id={$user['id']}";
         mysqli_query($conn, $update_query);
 
         $_SESSION['user']['username'] = $new_username; 
+        $_SESSION['user']['pp_user'] = $profile_picture;
         $update_success = true;
 
     } elseif (isset($_POST['delete'])) {
@@ -55,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <form class="login-form" method="post">
+<form class="login-form" method="post" enctype="multipart/form-data">
             <h2>Kelola Akun</h2>
 
             <?php if ($update_success): ?>
@@ -65,18 +87,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="input-group">
                 <label for="username"><i class="fas fa-user"></i> Username</label>
                 <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
-            </div>
+            </div><br>
 
             <div class="input-group">
                 <label for="password"><i class="fas fa-lock"></i> Password</label>
                 <input type="password" name="password" required>
-            </div>
+            </div><br>
+
+            <div class="input-group">
+                <label for="pp_user"><i class="fas fa-image"></i> Foto Profil</label>
+                <input type="file" name="pp_user" accept="image/*">
+<?php if (!empty($user['pp_user'])): ?>
+                    <br><img src="/MY_NUSANTARA/admin/uploads/<?php echo htmlspecialchars($user['pp_user']); ?>" alt="Foto Profil" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-top: 10px;">
+                <?php endif; ?>
+            </div><br>
 
             <button type="submit" name="update">Update Akun</button><br><br>
             <button type="submit" name="delete" onclick="return confirm('Yakin ingin menghapus akun?')">Hapus Akun</button>
 
             <br><br>
-            <a href="dasbor.php">Kembali ke Dasbor</a>
+            <a style="color:#6d6027;" href="dasbor.php">Kembali ke Dashboard</a>
         </form>
     </div>
 </body>

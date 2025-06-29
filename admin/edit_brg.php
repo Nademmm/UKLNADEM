@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql_update = "UPDATE barang_tradisional SET nama_barang = '$nama_barang', gambar_barang = '$gambar_barang', harga_barang = $harga_barang WHERE id_barang = $id_barang";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql_update) === TRUE) {
         header("Location: barang.php?Data berhasil diedit");
     } else {
         echo "Error: " . $conn->error;

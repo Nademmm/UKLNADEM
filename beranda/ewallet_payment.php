@@ -17,6 +17,7 @@ if (!$order_id) {
 }
 
 $order = null;
+$is_ticket_order = false;
 if ($order_id && isset($_SESSION['user']['id'])) {
     $stmt = $conn->prepare("SELECT * FROM orders WHERE id = ? AND user_id = ?");
     $stmt->bind_param("ii", $order_id, $_SESSION['user']['id']);
@@ -24,6 +25,19 @@ if ($order_id && isset($_SESSION['user']['id'])) {
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
         $order = $result->fetch_assoc();
+
+        // Check if order contains any e-ticket items
+        $items_stmt = $conn->prepare("SELECT COUNT(*) as ticket_count FROM order_items oi LEFT JOIN acara a ON oi.product_id = a.id_acara WHERE oi.order_id = ? AND a.id_acara IS NOT NULL");
+        $items_stmt->bind_param("i", $order_id);
+        $items_stmt->execute();
+        $items_result = $items_stmt->get_result();
+        $ticket_count = 0;
+        if ($items_result && $row = $items_result->fetch_assoc()) {
+            $ticket_count = (int)$row['ticket_count'];
+        }
+        $items_stmt->close();
+
+        $is_ticket_order = ($ticket_count > 0);
     }
     $stmt->close();
 }
@@ -87,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['payment_proof']) && 
     <link rel="stylesheet" href="/MY_NUSANTARA/css/pesanan.css" />
 </head>
 <body>
+<div class="payment-wrapper">
     <div class="payment-container">
         <img src="/MY_NUSANTARA/image/dana.jpg" alt="Dana" />
         <p>Silahkan scan untuk membayar pesanan anda</p>
@@ -95,25 +110,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['payment_proof']) && 
             <p class="upload-message"><?= htmlspecialchars($message) ?></p>
         <?php endif; ?>
 
-        <?php if ($inserted_order): ?>
-            <div class="thankyou-box">
-                <h2>Terima kasih atas pembelian Anda!</h2>
-                <p>Silakan unduh e-tiket Anda melalui tautan di bawah ini.</p>
-                <img src="/MY_NUSANTARA/admin/uploads/barcode.jpg" alt="Barcode" style="max-width:200px; margin-bottom:40px; allign-items:center;" />
-                <a href="/MY_NUSANTARA/admin/uploads/barcode.jpg" download="e-ticket.jpg" class="buy-button">Unduh E-Tiket</a>
-            </div>
-        <?php else: ?>
-        <form action="ewallet_payment.php?order_id=<?php echo htmlspecialchars($order_id); ?>" method="post" enctype="multipart/form-data">
-            <label for="payment_proof">Unggah bukti pembayaran (screenshot):</label><br/>
-            <input type="file" name="payment_proof" id="payment_proof" accept="image/*" required />
-            <button type="submit">Kirim Bukti Pembayaran</button>
-        </form>
-
+<?php if ($inserted_order): ?>
+    <div class="thankyou-box">
+        <h2>Terima kasih atas pembelian Anda!</h2>
+        <p>Bukti pembayaran berhasil diunggah dan pesanan Anda telah diproses.</p>
+        <?php if ($is_ticket_order): ?>
+            <p>Silakan unduh e-tiket Anda melalui tautan di bawah ini.</p>
+            <img src="/MY_NUSANTARA/admin/uploads/barcode.jpg" alt="Barcode" style="max-width:200px; margin-bottom:40px; allign-items:center;" />
+            <a href="/MY_NUSANTARA/admin/uploads/barcode.jpg" download="e-ticket.jpg" class="buy-button">Unduh E-Tiket</a>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+<form action="ewallet_payment.php?order_id=<?php echo htmlspecialchars($order_id); ?>" method="post" enctype="multipart/form-data">
+    <label for="payment_proof">Unggah bukti pembayaran (screenshot):</label><br/>
+    <input type="file" name="payment_proof" id="payment_proof" accept="image/*" required />
+    <button type="submit">Kirim Bukti Pembayaran</button>
+</form>
         <form action="ewallet_payment.php" method="post" onsubmit="return confirm('Apakah Anda yakin ingin membatalkan pembayaran?');">
             <button type="submit" name="cancel_order" class="back-link">Batalkan pembayaran</button>
         </form>
         <?php endif; ?><br>
         <a href="index1.php" class="back-link">Kembali ke Beranda</a>
     </div>
+</div>
 </body>
 </html>

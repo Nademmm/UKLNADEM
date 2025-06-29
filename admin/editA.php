@@ -25,6 +25,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_budaya = $conn->real_escape_string($_POST['id_budaya']);
     $deskripsi = $conn->real_escape_string($_POST['deskripsi']);
 
+    $gambar_acara = null;
+    if (isset($_FILES['gambar_acara']) && $_FILES['gambar_acara']['error'] == UPLOAD_ERR_OK) {
+        $uploadDir = 'uploads/';
+        $tmpName = $_FILES['gambar_acara']['tmp_name'];
+        $fileName = basename($_FILES['gambar_acara']['name']);
+        $targetFilePath = $uploadDir . $fileName;
+
+        if (move_uploaded_file($tmpName, $targetFilePath)) {
+            $gambar_acara = $fileName;
+        } else {
+            echo "Gagal mengupload gambar acara.";
+            exit();
+        }
+    }
+
     $sql = "UPDATE acara 
             SET nama_acara='$nama_acara', 
                 tempat_acara='$tempat_acara', 
@@ -33,8 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 harga='$harga',
                 deskripsi='$deskripsi',
                 id_wilayah='$id_wilayah',
-                id_budaya='$id_budaya'
-            WHERE id_acara='$id_acara'";
+                id_budaya='$id_budaya'";
+
+    if ($gambar_acara) {
+        $sql .= ", gambar_acara='$gambar_acara'";
+    }
+
+    $sql .= " WHERE id_acara='$id_acara'";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: acara.php?Data berhasil diedit");
@@ -54,11 +74,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h2 class="admin-subtitle">Edit Acara</h2>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_acara" value="<?php echo htmlspecialchars($row['id_acara']); ?>">
 
         <label for="nama_acara">Nama Acara:</label>
         <input type="text" name="nama_acara" value="<?php echo htmlspecialchars($row['nama_acara']); ?>" required class="admin-input"><br><br>
+
+        <label for="gambar_acara">Gambar Acara:</label><br>
+        <?php if (!empty($row['gambar_acara'])): ?>
+            <img src="/MY_NUSANTARA/admin/uploads/<?php echo htmlspecialchars($row['gambar_acara']); ?>" alt="Gambar Acara" style="max-width: 200px; max-height: 200px;"><br>
+        <?php endif; ?>
+        <input type="file" name="gambar_acara" accept="image/*" class="admin-input"><br><br>
 
         <label for="id_wilayah">Wilayah:</label>
         <select name="id_wilayah" required class="admin-input">
@@ -96,8 +122,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="harga">Harga Tiket:</label>
         <input type="text" name="harga" value="<?php echo htmlspecialchars($row['harga']); ?>" required class="admin-input"><br><br>
 
-        <label for="deskripsi">deskripsi:</label>
-        <input type="text" name="deskripsi" value="<?php echo htmlspecialchars($row['deskripsi']); ?>" required class="admin-input"><br><br>
+        <label for="deskripsi">Deskripsi:</label>
+        <textarea name="deskripsi" required class="admin-input" rows="5"><?php echo htmlspecialchars($row['deskripsi']); ?></textarea><br><br>
 
         <input type="submit" value="Update" class="admin-button">
     </form>

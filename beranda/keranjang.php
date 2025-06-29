@@ -129,14 +129,15 @@ if (isset($_GET['remove_acara'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 <body>
-    <div class="container">
+    <?php include 'header.php'; ?><br><br>
+    <div class="container-keranjang">
         <h1 class="admin-title">Keranjang Belanja</h1>
 
         <?php if (empty($_SESSION['cart']['barang']) && empty($_SESSION['cart']['acara'])): ?>
             <p>Wahh.. keranjang kamu kosong nih, belanja yuk!</p><br>
             <a href="index1.php" class="buy-button">Kembali</a>
         <?php else: ?>
-            <h2>Barang</h2>
+            <h2 class="garis">Barang</h2>
             <?php if (!empty($_SESSION['cart']['barang'])): ?>
                 <table class="admin-table">
                     <thead>
@@ -179,7 +180,7 @@ if (isset($_GET['remove_acara'])) {
                 <p>Tidak ada barang di keranjang</p>
             <?php endif; ?>
 
-            <h2>Tiket Acara</h2>
+            <h2 class="garis">Tiket Acara</h2>
             <?php if (!empty($_SESSION['cart']['acara'])): ?>
                 <table class="admin-table">
                     <thead>
@@ -228,6 +229,7 @@ if (isset($_GET['remove_acara'])) {
             <br><br>      
         <?php endif; ?>
         <a href="pesanan.php" class="buy-button">Pesanan Anda</a>
-    </div>
+    </div><br><br><br>
+<?php include 'footer.php'; ?>
 </body>
 </html>
